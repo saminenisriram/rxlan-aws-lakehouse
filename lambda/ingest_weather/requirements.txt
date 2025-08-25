@@ -1,0 +1,3 @@
+# Step 1: keep empty or comments-only (use Python stdlib urllib.request)
+# If later you want 'requests', add:
+# requests==2.*

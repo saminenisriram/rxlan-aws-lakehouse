@@ -52,15 +52,23 @@ def lambda_handler(event, context):
             "PartitionKey": partition_key
         })
 
-    if records_to_send:
-        resp = kinesis.put_records(
-            Records=records_to_send,
-            StreamName=KINESIS_STREAM
-        )
+    try:
+
+        if records_to_send:
+            resp = kinesis.put_records(
+                Records=records_to_send,
+                StreamName=KINESIS_STREAM
+            )
+            print(json.dumps({
+                "level": "info",
+                "sent": len(records_to_send),
+                "failed": resp.get("FailedRecordCount", 0)
+            }))
+    except Exception as e:
         print(json.dumps({
-            "level": "info",
-            "sent": len(records_to_send),
-            "failed": resp.get("FailedRecordCount", 0)
+            "level": "error",
+            "message": str(e)
         }))
+        raise e
 
     return {"records_processed": len(records_to_send), "kinesis_response": resp}

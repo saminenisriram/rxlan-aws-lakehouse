@@ -1,6 +1,6 @@
 # Weather Data Pipeline – README
 
-A small, end-to-end data pipeline that fetches current weather for a list of cities, stores normalized records in DynamoDB, fans out changes to S3 (Bronze) via Kinesis + Firehose, and loads analytics-ready data to Amazon Redshift using AWS Glue.
+A end-to-end data pipeline that fetches current weather for a list of cities, stores normalized records in DynamoDB, fans out changes to S3 (Bronze) via Kinesis + Firehose, and loads analytics-ready data to Amazon Redshift using AWS Glue.
 
 ---
 

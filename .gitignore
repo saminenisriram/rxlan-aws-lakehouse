@@ -13,3 +13,5 @@ __pycache__/
 Thumbs.db
 # Build artifacts
 *.zip
+bronze_to_silver_openweather.py
+init.sql
